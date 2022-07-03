@@ -14,8 +14,9 @@ public class RestController {
     nbpRepository nbpRepository;
 
     @GetMapping("/")
-    public String hello(Double rates) {
+    public String kursy(Double rates) {
         Double averageRate = Service.getExchangeData();
+
 
         if (averageRate != null) {
             Entity exchangeRates = new Entity();
@@ -24,7 +25,7 @@ public class RestController {
 
             nbpRepository.save(exchangeRates);
 
-            String str = "Kurs złota wynosi " + rates;
+            String str = "Kurs złota wynosi " + averageRate;
             return str;
         } else {
             return "Something went wrong";

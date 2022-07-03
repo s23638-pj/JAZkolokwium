@@ -18,10 +18,10 @@ public class Service {
             connection.setRequestMethod("GET");
             connection.connect();
 
-//            int responseCode = connection.getResponseCode();
-//            if (responseCode != 200) {
-//
-//            } else {
+            int responseCode = connection.getResponseCode();
+            if (responseCode != 200) {
+
+            } else {
 //                String inline = "";
 //                Scanner scanner = new Scanner(url.openStream());
 //
@@ -37,24 +37,24 @@ public class Service {
 //                JSONObject data_obj = (JSONObject) parser.parse(inline);
 //
 //                JSONArray cenyzlota = (JSONArray) data_obj.get("cenyzlota");
+
 //                return getAverageRate(cenyzlota);
-//
-//
-//            }
+
+
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-//    public static double getAverageRate(JSONArray rates) {
-//        double sum = 0;
-//        for (int i = 0; i < rates.size(); i++) {
-//            JSONObject obj = (JSONObject) rates.get(i);
-//            double value = Double.parseDouble(obj.get("mid").toString());
-//            sum += value;
-//        }
-//        return sum / rates.size();
-//    }
+
+
+    public static double getAverageRate(JSONArray rates) {
+        double value = 0;
+            JSONObject obj = (JSONObject) rates.get(0);
+            value = Double.parseDouble(obj.get("cena").toString());
+        return value;
+    }
 
 }
